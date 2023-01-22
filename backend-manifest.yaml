@@ -7,8 +7,10 @@ metadata:
     layer: backend
 spec:
   containers:
-  - image: reagancn/yolo-backend
+  - image: reaganc/yolo-backend:1.6
     name: yolo-backend
+    stdin: true
+    tty: true
     env:
       - name: MONGODB_URI
         value: "MONGODB_URI=mongodb://mongodb:27017/yolomy"
