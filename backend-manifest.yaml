@@ -7,8 +7,9 @@ metadata:
     layer: backend
 spec:
   containers:
-  - image: reaganc/yolo-backend:1.6
+  - image: reaganc/yolo-backend:1.7
     name: yolo-backend
+    command: ["npm", "start"]
     stdin: true
     tty: true
     env:

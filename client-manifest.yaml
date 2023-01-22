@@ -7,8 +7,9 @@ metadata:
     layer: frontend
 spec:
   containers:
-  - image: reaganc/yolo-client:1.5
+  - image: reaganc/yolo-client:1.6
     name: yolo-client
+    command: ["npm", "start"]
     tty: true
     stdin: true
     ports:
