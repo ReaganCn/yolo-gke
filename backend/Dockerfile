@@ -12,3 +12,5 @@ COPY ./ /backend
 
 # Install dependencies
 RUN npm install
+
+ENTRYPOINT [ "node", "server.js" ]
