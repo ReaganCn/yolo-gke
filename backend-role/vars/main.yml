@@ -1,0 +1,5 @@
+---
+# vars file for backend
+
+# The name of the backend image built
+backend_image_name: yolo-backend:1.0

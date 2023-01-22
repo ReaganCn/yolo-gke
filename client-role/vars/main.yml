@@ -1,0 +1,3 @@
+---
+# vars file for client
+client_image_name: yolo-client:1.0

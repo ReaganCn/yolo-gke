@@ -1,0 +1,9 @@
+---
+# tasks file for backend
+- name: "Build the image from the Dockerfile"
+  docker_image: 
+    name: "{{ backend_image_name }}"
+    source: build
+    build:
+      path: /opt/yolo/backend
+    state: present

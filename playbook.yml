@@ -1,0 +1,72 @@
+---
+- hosts: all
+  become: yes
+
+  vars:
+    docker_network_name: custom-network
+
+  pre_tasks:
+  - name: Update apt cache if needed
+    apt: update_cache=yes cache_valid_time=3600
+
+  - name: "Install required dependencies"
+    apt: 
+      state: present
+      name: 
+        - apt-transport-https
+        - ca-certificates
+        - curl
+        - software-properties-common
+        - python3-pip
+        - virtualenv
+        - python3-setuptools
+
+  - name: "Clone repository"
+    git:
+      repo: https://github.com/ReaganCn/yolo.git
+      dest: /opt/yolo
+      clone: yes
+      update: yes
+  
+  roles:
+    - setup-docker
+    - client-role
+    - backend-role
+
+  tasks:
+  - name: "Start MongoDB container"
+    docker_container:
+      name: mongodb
+      image: mongo:latest
+      volumes:
+      - backend-mongodb:/data/db
+      networks:
+      - name: "{{ docker_network_name }}"
+      
+  - name: "Run the backend container"
+    docker_container:
+      name: backend
+      image: "{{ backend_image_name }}"
+      state: started
+      command: npm start
+      env:
+        MONGODB_URI: mongodb://mongodb:27017/yolomy
+      ports: 
+      - "5050:5050"
+      tty: true
+      networks: 
+      - name: "{{ docker_network_name }}"
+
+  - name: "Run the client container"
+    docker_container:
+      name: client
+      image: "{{ client_image_name }}"
+      state: started
+      command: npm start
+      ports: 
+      - "3000:3000"
+      tty: true
+      networks: 
+      - name: "{{ docker_network_name  }}"
+
+

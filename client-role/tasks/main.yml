@@ -1,0 +1,10 @@
+---
+# tasks file for client
+- name: "Build the image from the Dockerfile"
+  docker_image: 
+    name: "{{ client_image_name }}"
+    source: build
+    build:
+      path: /opt/yolo/client
+    state: present
+
