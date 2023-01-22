@@ -12,3 +12,5 @@ COPY ./ /frontend
 
 # Install dependencies
 RUN npm install
+
+ENTRYPOINT [ "npm", "start" ]
