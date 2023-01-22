@@ -7,8 +7,10 @@ metadata:
     layer: frontend
 spec:
   containers:
-  - image: reagancn/yolo-client:1.2
+  - image: reaganc/yolo-client:1.5
     name: yolo-client
+    tty: true
+    stdin: true
     ports:
     - containerPort: 3000
       protocol: TCP
