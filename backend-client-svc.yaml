@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+ name: backendsvc
+spec:
+ ports:
+ - port: 80
+   targetPort: 5050
+ selector:
+   app: yolo
