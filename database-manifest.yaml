@@ -5,9 +5,16 @@ metadata:
   labels:
     layer: backend
 spec:
+  volumes:
+    - name: mongodb-volume
+      persistentVolumeClaim:
+        claimName: yolo-pv-claim
   containers:
   - image: mongo:latest
     name: mongodb
     ports:
     - containerPort: 27017
       protocol: TCP
+    volumeMounts:
+      - mountPath: "/data/db"
+        name: mongodb-volume
