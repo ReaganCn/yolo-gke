@@ -39,6 +39,6 @@ Build using docker compose
 
 Finally Navigate to <a href="http://localhost:3000" target="blank">localhost:3000</a> in your browser
 
-### Image links
-- <a href="https://hub.docker.com/repository/docker/reagancn/yolo-client" target="blank">yolo client</a>
-- <a href="https://hub.docker.com/repository/docker/reagancn/yolo-backend" target="blank">yolo backend</a>
+## Image links
+- <a href="https://hub.docker.com/repository/docker/reaganc/yolo-client" target="blank">Yolo client</a> docker image
+- <a href="https://hub.docker.com/repository/docker/reaganc/yolo-backend" target="blank">Yolo backend</a> docker image
