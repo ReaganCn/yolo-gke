@@ -6,6 +6,18 @@
 
 Yolo is a simple ecommerce platform written in reactjs and node. It uses the nosql database mongodb. 
 
+## Setting up and Running the project in Googe Kubernetes engine
+
+#### You can check out the app at: [34.105.128.4:3000](http://34.105.128.4:3000/)
+
+For details see [Explanation.md](explanation.md).
+
+Make sure you have [gcloud](https://cloud.google.com/sdk/docs/install-sdk) and [kubectl](https://cloud.google.com/kubernetes-engine/docs/how-to/cluster-access-for-kubectl) installed.
+
+Open a terminal in the root folder of the project. Navigate into the folder that contains the kubernetes manifests: `gke-manifests`. Use:
+
+`kubectl apply -f <manifest-name.yaml>` to deploy the manifests, from the application folder to services folder.
+
 ## Setting up and Running the project in a VM
 
 For details see [Explanation.md](explanation.md).
