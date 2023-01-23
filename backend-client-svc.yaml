@@ -3,8 +3,10 @@ kind: Service
 metadata:
  name: backendsvc
 spec:
+ type: LoadBalancer
  ports:
  - port: 80
    targetPort: 5050
+   protocol: TCP
  selector:
-   app: yolo
+   app: api

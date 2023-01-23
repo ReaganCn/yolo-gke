@@ -3,7 +3,7 @@ kind: Pod
 metadata:
   name: yolo-backend
   labels:
-    app: yolo
+    app: api
     layer: backend
 spec:
   containers:
