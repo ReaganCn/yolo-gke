@@ -6,7 +6,7 @@ metadata:
     layer: backend
 spec:
   volumes:
-    - name: mongodb-volume
+    - name: mongodb-pv
       persistentVolumeClaim:
         claimName: yolo-pv-claim
   containers:
@@ -17,4 +17,4 @@ spec:
       protocol: TCP
     volumeMounts:
       - mountPath: "/data/db"
-        name: mongodb-volume
+        name: mongodb-pv
